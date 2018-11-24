@@ -12,3 +12,11 @@
 */
 
 Route::get('/','HomeController@index');
+
+Route::get('/order','HomeController@order');
+
+Route::get('/alamat_ambil','HomeController@alamat_ambil');
+
+Route::get('/login','HomeController@login');
+
+Route::get('/register','HomeController@lupa_password');
