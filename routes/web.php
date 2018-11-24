@@ -19,4 +19,6 @@ Route::get('/alamat_ambil','HomeController@alamat_ambil');
 
 Route::get('/login','HomeController@login');
 
+Route::get('/login','HomeController@register');
+
 Route::get('/register','HomeController@lupa_password');

@@ -11,23 +11,23 @@ class HomeController extends Controller
     	return view('home.index'); 
     }
 
-    public function index(){
-    	return view('order');
+    public function order(){
+    	return view('home.order');
     }
 
-    public function index(){
-    	return view('alamat_ambil');
+    public function alamat_ambil(){
+    	return view('home.alamat_ambil');
     }
 
-    public function index(){
-    	return view('login');
+    public function login(){
+    	return view('home.login');
     }
 
-    public function index(){
-    	return view('register');
+    public function register(){
+    	return view('home.register');
     }
 
-    public function index(){
-    	return view('lupa_password');
+    public function lupa_password(){
+    	return view('home.lupa_password');
     }
 }
