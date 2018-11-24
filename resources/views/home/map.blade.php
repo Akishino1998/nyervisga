@@ -18,12 +18,14 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <body>
     <div id="maps"></div>
-	<form action="">
+	<form action="/lokasi-anda" method="post" >
 		<input type="text" name="latitude" id="latclicked" >
 		<input type="text" name="longtitude" id="longclicked">
 		Address:
 		<input id="searchTextField" type="text" size="50" style="text-align: left;width:357px;direction: ltr;">
 		<button type="submit">Disitu Lokasi Saya</button>
+		<input >
+		@csrf
 	</form>
 	
 	<script>

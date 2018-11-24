@@ -10,4 +10,9 @@ class MapsController extends Controller
     {
         return view('home.map');
     }
+    public function create()
+    {
+        
+        return view('home.elektronik');
+    }
 }

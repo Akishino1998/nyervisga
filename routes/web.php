@@ -17,7 +17,9 @@ Route::get('/order','OrderController@order');
 
 Route::get('/alamat_ambil','AlamatAmbilController@alamat_ambil');
 
-Route::get('/login','LoginController@login');
+//akun
+Route::get('/login','LoginController@index');
+Route::post('/login','LoginController@login');
 
 Route::get('/register','RegisterController@register');
 
@@ -29,4 +31,5 @@ Route::get('/biodata','BiodataController@index');
 
 //order
 Route::get('/lokasi-anda','MapsController@index');
+Route::post('/lokasi-anda','MapsController@create');
 Route::get('/elektronik','ElektronikController@index');
