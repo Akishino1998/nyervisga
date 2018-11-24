@@ -21,4 +21,4 @@ Route::get('/login','HomeController@login');
 
 Route::get('/register','HomeController@register');
 
-Route::get('/register','HomeController@lupa_password');
+Route::get('/lupa_password','HomeController@lupa_password');
