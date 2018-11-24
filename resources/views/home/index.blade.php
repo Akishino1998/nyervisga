@@ -2,29 +2,16 @@
 @section('judul','Nyervisga? | Selamat Datang')
 
 @section('konten')
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <img src="{{ asset('image/textnyervisga.png') }}" class="img-thumbnail" width="300">
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
+                    <img src="{{ asset('image/textnyervisga.png') }}" class="img-thumbnail" width="300" style="left:50px;" >
                 </li>
             </ul>
-            <span class="navbar-text">
-               
-            </span>
             <div class="form-inline my-2 my-lg-0">
                 <a class="nav-link" href="#">Home</a>
                 <a class="nav-link" href="#">Service</a>
@@ -34,7 +21,6 @@
             </div>
         </div>
     </nav>
-    
 
     <div class="jumbotron bg-success text-light ">
         
