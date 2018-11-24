@@ -2,5 +2,13 @@
 @section('judul','Nyervisga? | LOGIN')
 
 @section('konten')
-DESIGN NYA DISINI
+<!DOCTYPE html>
+<html>
+<head>
+	<title> </title>
+</head>
+<body>
+
+</body>
+</html>
 @endsection
