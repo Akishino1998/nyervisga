@@ -2,5 +2,5 @@
 @section('judul','Nyervisga? | LOGIN')
 
 @section('konten')
-awdwd
+DESIGN LOGIN DI SINI
 @endsection
