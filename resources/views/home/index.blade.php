@@ -101,10 +101,8 @@
 							<div class="row">
 								<div class="col text-center">
 									<div class="home_slider_title font-color-white">Service Elekronikmu Tanpa Harus Keluar Rumah</div>
-									
-										
 									<div class="home_slider_form_container ">
-                                        <button type="submit" class="home_search_button hvr-bounce-in ">SERVIS YUK!!!</button>
+                                        <button type="submit" class="home_search_button hvr-bounce-in "><a href="/lokasi-anda">SERVIS YUK!!!</a></button>
                                         <br><h4 class="home_button ">Selengkapnya<br>
                                         <i class="fa fa-arrow-down fa-3x home_button_arrow hvr-icon-down" aria-hidden="true"></i>
                                         </h4>

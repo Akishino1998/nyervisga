@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\OrderServis;
+use App\OrderServisAddress;
+
 
 class MapsController extends Controller
 {
@@ -10,7 +12,7 @@ class MapsController extends Controller
     {
         return view('home.map');
     }
-    public function create()
+    public function create(Request $request)
     {
         
         return view('home.elektronik');

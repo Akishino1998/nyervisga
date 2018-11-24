@@ -18,6 +18,7 @@ class LoginController extends Controller
         foreach ($mahasiswa as $mahasiswas) {
             if($mahasiswas->username == $request->username){
                 session(['status' => 'login']);
+                session(['id' => $mahasiswas->id_user]);
                 return redirect('/');
             }else{
                 session(['status' => 'salah']);
