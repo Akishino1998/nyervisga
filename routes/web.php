@@ -24,3 +24,5 @@ Route::get('/register','RegisterController@register');
 Route::get('/lupa_password','LupaPasswordController@lupa_password');
 
 Route::get('/biodata','BiodataController@index');
+
+Route::get('/lokasi-anda','MapsController@index');
