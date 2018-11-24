@@ -93,39 +93,7 @@
 		<div class="home_slider_container">
 			<!-- Home Slider -->
 			<div class="owl-carousel owl-theme home_slider">
-
 				<!-- Home Slider Item -->
-				<div class="owl-item">
-					<div class="home_slider_background" ><img src="{{ asset('images/slider/slider_ex_1.jpg') }}" alt=""></div>
-					<div class="home_slider_content">
-						<div class="container">
-							<div class="row">
-								<div class="col text-center">
-									<div class="home_slider_title">Service Elekronikmu Tanpa Harus Keluar Rumah</div>
-									<div class="home_slider_subtitle">
-										<i>
-											<a href="https://kbbi.web.id/tenteng" style="color:#85777A">"Nenteng</a>
-										</i>
-										TV itu berat, biar <span style="color:black;">Nyervis<span style="color:#14BDEE;">ga</span>?</span> aja", Dilanku 1990</div>
-									<div class="home_slider_form_container ">
-										<form action="#" id="home_search_form_1" class="home_search_form d-flex flex-lg-row flex-column align-items-center justify-content-between">
-											<div class="d-flex flex-row align-items-center justify-content-start">
-
-													<select class="form-control dropdown-style">
-														<option value="enggaktau" selected>Pilih salah satu ....</option>
-														<option value="smartphone">Smartphone</option>
-														<option value="laptop">Laptop</option>
-														<option value="komputer">Komputer</option>
-													</select>
-											</div>
-											<button type="submit" class="home_search_button hvr-bounce-in ">Servisin!</button>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				<div class="owl-item">
 					<div class="home_slider_background" ><img src="{{ asset('images/slider/slider_ex_1.jpg') }}" alt=""></div>
 					<div class="home_slider_content">
