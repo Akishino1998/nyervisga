@@ -23,4 +23,8 @@ Route::get('/register','RegisterController@register');
 
 Route::get('/lupa_password','LupaPasswordController@lupa_password');
 
+<<<<<<< HEAD
 Route::get('/elektronik','ElektronikController@index');
+=======
+Route::get('/biodata','BiodataController@index');
+>>>>>>> aec800f0221c53bd5ba29441e9f52c5cea6447f4
