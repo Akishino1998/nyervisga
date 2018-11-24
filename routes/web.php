@@ -29,9 +29,13 @@ Route::get('/elektronik','ElektronikController@index');
 
 Route::get('/biodata','BiodataController@index');
 
-Route::get('/lokasi-anda','MapsController@index');
 
-Route::get('/elektronik','ElektronikController@index');
+
+
 
 >>>>>>> 9a96635ec8d0c5dcd3ad0123866597748cafa74b
 Route::get('/biodata','BiodataController@index');
+
+//order
+Route::get('/lokasi-anda','MapsController@index');
+Route::get('/elektronik','ElektronikController@index');
