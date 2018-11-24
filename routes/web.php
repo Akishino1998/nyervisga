@@ -23,17 +23,8 @@ Route::get('/register','RegisterController@register');
 
 Route::get('/lupa_password','LupaPasswordController@lupa_password');
 
-<<<<<<< HEAD
+
 Route::get('/elektronik','ElektronikController@index');
-=======
-
-Route::get('/biodata','BiodataController@index');
-
-
-
-
-
->>>>>>> 9a96635ec8d0c5dcd3ad0123866597748cafa74b
 Route::get('/biodata','BiodataController@index');
 
 //order
