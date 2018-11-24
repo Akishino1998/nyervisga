@@ -22,3 +22,5 @@ Route::get('/login','LoginController@login');
 Route::get('/register','RegisterController@register');
 
 Route::get('/lupa_password','LupaPasswordController@lupa_password');
+
+Route::get('/elektronik','ElektronikController@index');
