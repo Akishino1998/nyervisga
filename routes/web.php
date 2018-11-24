@@ -13,12 +13,12 @@
 
 Route::get('/','HomeController@index');
 
-Route::get('/order','HomeController@order');
+Route::get('/order','OrderController@order');
 
-Route::get('/alamat_ambil','HomeController@alamat_ambil');
+Route::get('/alamat_ambil','AlamatAmbilController@alamat_ambil');
 
-Route::get('/login','HomeController@login');
+Route::get('/login','LoginController@login');
 
-Route::get('/register','HomeController@register');
+Route::get('/register','RegisterController@register');
 
-Route::get('/lupa_password','HomeController@lupa_password');
+Route::get('/lupa_password','LupaPasswordController@lupa_password');
