@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2018 at 10:42 AM
+-- Generation Time: Nov 25, 2018 at 06:01 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -45,6 +45,15 @@ CREATE TABLE `data_elektronik` (
   `nama_elektronik` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `data_elektronik`
+--
+
+INSERT INTO `data_elektronik` (`id_elektronik`, `jenis_elektronik`, `nama_elektronik`) VALUES
+('1', 'HP', 'Smartphone'),
+('2', 'Komputer', 'PC'),
+('3', 'Komputer', 'Laptop');
+
 -- --------------------------------------------------------
 
 --
@@ -53,15 +62,23 @@ CREATE TABLE `data_elektronik` (
 
 CREATE TABLE `kurir` (
   `id_kurir` int(6) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `alamat` text NOT NULL,
-  `kode_pos` varchar(10) NOT NULL,
-  `no_hp` varchar(13) NOT NULL,
-  `latitude` text NOT NULL,
-  `longtitude` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `nama` varchar(50) DEFAULT NULL,
+  `alamat` text,
+  `kode_pos` varchar(10) DEFAULT NULL,
+  `no_hp` varchar(13) DEFAULT NULL,
+  `latitude` text,
+  `longtitude` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kurir`
+--
+
+INSERT INTO `kurir` (`id_kurir`, `nama`, `alamat`, `kode_pos`, `no_hp`, `latitude`, `longtitude`, `created_at`, `updated_at`) VALUES
+(123, 'Ari', NULL, '75124', NULL, NULL, NULL, '2018-11-24 17:37:01', '0000-00-00 00:00:00'),
+(12313, 'Hendra', NULL, '75243', NULL, NULL, NULL, '2018-11-24 18:30:25', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -199,11 +216,44 @@ CREATE TABLE `order_proses_rumah` (
 CREATE TABLE `order_servis` (
   `id_order` int(11) NOT NULL,
   `id_user` int(5) NOT NULL,
-  `date` datetime NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date` date NOT NULL,
   `id_kurir` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_servis`
+--
+
+INSERT INTO `order_servis` (`id_order`, `id_user`, `date`, `id_kurir`) VALUES
+(84, 12, '2018-11-25', 12313),
+(85, 12, '2018-11-25', 12313),
+(86, 12, '2018-11-25', 12313),
+(87, 12, '2018-11-25', 12313),
+(88, 12, '2018-11-25', 12313),
+(89, 12, '2018-11-25', 12313),
+(90, 12, '2018-11-25', 12313),
+(91, 12, '2018-11-25', 12313),
+(92, 12, '2018-11-25', 12313),
+(93, 12, '2018-11-25', 12313),
+(94, 12, '2018-11-25', 12313),
+(95, 12, '2018-11-25', 12313),
+(96, 12, '2018-11-25', 12313),
+(97, 12, '2018-11-25', 123),
+(98, 12, '2018-11-25', 12313),
+(99, 12, '2018-11-25', 12313),
+(100, 12, '2018-11-25', 12313),
+(101, 12, '2018-11-25', 123);
+
+--
+-- Triggers `order_servis`
+--
+DELIMITER $$
+CREATE TRIGGER `order_servis_after_insert` AFTER INSERT ON `order_servis` FOR EACH ROW BEGIN
+INSERT INTO order_servis_address
+SET id_order = NEW.id_order;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -213,14 +263,38 @@ CREATE TABLE `order_servis` (
 
 CREATE TABLE `order_servis_address` (
   `id_address` int(6) NOT NULL,
-  `id_order` int(11) NOT NULL,
-  `latitude` text NOT NULL,
-  `longtitude` text NOT NULL,
-  `alamat_lengkap` text NOT NULL,
-  `kode_pos` varchar(10) NOT NULL,
-  `catatan` text NOT NULL,
-  `no_hp` varchar(13) NOT NULL
+  `id_order` int(11) DEFAULT NULL,
+  `latitude` text,
+  `longtitude` text,
+  `alamat_lengkap` text,
+  `kode_pos` varchar(10) DEFAULT NULL,
+  `catatan` text,
+  `no_hp` varchar(13) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_servis_address`
+--
+
+INSERT INTO `order_servis_address` (`id_address`, `id_order`, `latitude`, `longtitude`, `alamat_lengkap`, `kode_pos`, `catatan`, `no_hp`) VALUES
+(70, 84, '-0.4853129657836679', '117.12695583345135', 'Jl. P Antasari No.50A, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75126, Indonesia', '75126', 'awd', '08123'),
+(71, 85, '-0.486085414224893', '117.12666414322098', 'Jl. P Antasari No.68b, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(72, 86, '-0.486085414224893', '117.12666414322098', 'Jl. P Antasari No.68b, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(73, 87, '-0.48544170719666024', '117.12692163528641', 'Jl. P Antasari No.80, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(74, 88, NULL, NULL, NULL, NULL, NULL, NULL),
+(75, 89, NULL, NULL, NULL, NULL, NULL, NULL),
+(76, 90, '-0.4828668784718033', '117.1265783125325', 'Jl. Pangeran Suryanata No.96, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(77, 91, NULL, NULL, NULL, NULL, NULL, NULL),
+(78, 92, '-0.4828668784718033', '117.1265783125325', 'Jl. Pangeran Suryanata No.96, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(79, 93, NULL, NULL, NULL, NULL, NULL, NULL),
+(80, 94, '-0.4828668784718033', '117.1265783125325', 'Jl. Pangeran Suryanata No.96, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(81, 95, '-0.4847550862990141', '117.12700746597488', 'Jl. Ir. H. Juanda No.89, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75124, Indonesia', '75124', 'awd', '08123'),
+(82, 96, '-0.4853558795882743', '117.12636373581131', 'Jl. P Antasari No.57B, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(83, 97, '-0.48501256914378954', '117.12670705856522', 'Jl. P Antasari No.50, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75124, Indonesia', '75124', 'awd', '08123'),
+(84, 98, '-0.48599958662467474', '117.12696455063065', 'Jl. Pangeran Antasari Gg. H Kurdi No.66, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(85, 99, '-0.48599958662467474', '117.12696455063065', 'Jl. Pangeran Antasari Gg. H Kurdi No.66, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(86, 100, '-0.48599958662467474', '117.12696455063065', 'Jl. Pangeran Antasari Gg. H Kurdi No.66, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75243', 'awd', '08123'),
+(87, 101, '-0.48550397344505625', '117.12712097154497', 'JL. P.Antasari, Rt. 03, Teluk Lerong Ulu Sungai Kunjang, Air Putih, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75243, Indonesia', '75124', 'awd', '08123');
 
 -- --------------------------------------------------------
 
@@ -233,7 +307,6 @@ CREATE TABLE `order_servis_detail_elektronik` (
   `id_order` int(11) NOT NULL,
   `id_elektronik` varchar(6) NOT NULL,
   `merk` varchar(50) DEFAULT NULL,
-  `type` varchar(50) DEFAULT NULL,
   `no_seri` varchar(50) DEFAULT NULL,
   `kerusakan` text,
   `penyebab` text,
@@ -296,15 +369,23 @@ CREATE TABLE `teknisi_detail_servis` (
 
 CREATE TABLE `user` (
   `id_user` int(5) NOT NULL,
-  `nama_depan` varchar(50) NOT NULL,
-  `nama_belakang` varchar(50) NOT NULL,
-  `no_hp` varchar(13) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `alamat` text NOT NULL,
+  `nama_depan` varchar(50) DEFAULT NULL,
+  `nama_belakang` varchar(50) DEFAULT NULL,
+  `no_hp` varchar(13) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `alamat` text,
+  `kode_pos` varchar(7) DEFAULT NULL,
   `photo_profile` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama_depan`, `nama_belakang`, `no_hp`, `email`, `alamat`, `kode_pos`, `photo_profile`, `created_at`, `updated_at`) VALUES
+(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-24 15:57:27', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -317,6 +398,13 @@ CREATE TABLE `user_akun` (
   `password` varchar(50) NOT NULL,
   `id_user` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_akun`
+--
+
+INSERT INTO `user_akun` (`username`, `password`, `id_user`) VALUES
+('eko', 'eko', 12);
 
 --
 -- Indexes for dumped tables
@@ -470,7 +558,7 @@ ALTER TABLE `user_akun`
 -- AUTO_INCREMENT for table `kurir`
 --
 ALTER TABLE `kurir`
-  MODIFY `id_kurir` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kurir` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12314;
 
 --
 -- AUTO_INCREMENT for table `order_cancel`
@@ -524,13 +612,13 @@ ALTER TABLE `order_proses_rumah`
 -- AUTO_INCREMENT for table `order_servis`
 --
 ALTER TABLE `order_servis`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `order_servis_address`
 --
 ALTER TABLE `order_servis_address`
-  MODIFY `id_address` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_address` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `order_servis_detail_elektronik`
@@ -554,7 +642,7 @@ ALTER TABLE `teknisi_detail_servis`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
