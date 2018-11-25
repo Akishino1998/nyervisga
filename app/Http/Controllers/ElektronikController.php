@@ -7,8 +7,12 @@ use App\Http\Controllers\Controller;
 
 class ElektronikController extends Controller
 {
-    public function index()
+    public function index($id_order, $kode_pos)
     {
-    	return view('home.elektronik');
+        $data = array(
+            'id_order'=>$id_order,
+            'kode_pos'=>$kode_pos
+        );
+    	return view('home.elektronik')->with($data);
     }
 }

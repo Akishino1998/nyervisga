@@ -19,7 +19,7 @@ class LoginController extends Controller
             if($mahasiswas->username == $request->username){
                 session(['status' => 'login']);
                 session(['id' => $mahasiswas->id_user]);
-                return redirect('/');
+                // return redirect('/');
             }else{
                 session(['status' => 'salah']);
                 return redirect('login');

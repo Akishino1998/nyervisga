@@ -22,9 +22,14 @@
 		<input type="text" name="latitude" id="latclicked" >
 		<input type="text" name="longtitude" id="longclicked">
 		Address:
-		<input id="searchTextField" type="text" size="50" style="text-align: left;width:357px;direction: ltr;">
-		<button type="submit">Disitu Lokasi Saya</button>
-		<input >
+		<input type="text" name="alamat_lengkap" class="alamat_lengkap" id="searchTextField"  size="50" style="text-align: left;width:357px;direction: ltr;">
+        <input type="text" name="catatan" id="catatan" placeholder="catatan">
+        <input type="text" name="no_hp" id="no_hp" placeholder="no hp">
+        <input type="hidden" name="id_user" id="id_user" value="{{ Session::get('id') }}">
+        <input type="hidden" name="date" id="date" value="<?php echo date("Y-m-d"); ?>">
+        <input type="hidden" name="id_kurir" class="id_kurir" value="">
+        <input type="hidden" name="kode_pos" class="kode_pos" value="">
+        <button type="submit">Disitu Lokasi Saya</button>
 		@csrf
 	</form>
 	
@@ -51,6 +56,7 @@
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({"latLng":event.latLng}, function (results) {
               $("#searchTextField").val(results[0].formatted_address);
+              $(".kode_pos").val(results[0].address_components[7].long_name);
             });
         });
     }
@@ -71,6 +77,17 @@
             markers[i].setMap(map);
         }
     }
+    $('#maps').click(function(){
+        $kodepos = $('.kode_pos').val();
+        $.ajax({
+                type:'get',
+                url:'/kurir',
+                data:{kodepos : $kodepos},
+                success:function(data){
+                    $('.id_kurir').val(data.msg);
+                }
+        });
+    });
 </script>
     </body>
 </html>

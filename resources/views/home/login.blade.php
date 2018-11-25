@@ -30,7 +30,7 @@
                                 Username atau password salah!
                             </div>
                         @else
-                            <script>window.location.href = '/';</script>
+                            {{-- <script>window.location.href = '/';</script> --}}
                         @endif
                         <div class="form-group">
                             <input type="text" class="form-control username" name="username" placeholder="Username">

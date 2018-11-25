@@ -26,10 +26,13 @@ Route::get('/register','RegisterController@register');
 Route::get('/lupa_password','LupaPasswordController@lupa_password');
 
 
-Route::get('/elektronik','ElektronikController@index');
 Route::get('/biodata','BiodataController@index');
 
 //order
 Route::get('/lokasi-anda','MapsController@index');
 Route::post('/lokasi-anda','MapsController@create');
-Route::get('/elektronik','ElektronikController@index');
+Route::get('/elektronik/{id_order}/{kode_pos}','ElektronikController@index');
+
+
+//get kurir
+Route::get('/kurir','KurirController@index');
